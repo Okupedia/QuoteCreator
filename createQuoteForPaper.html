@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Create Quote</title>
+</head>
+
+<body>
+    <h2>論文・電子雑誌</h2>
+    <div class=inputArea>
+        <h3>著者名</h3>
+        <ul>
+            <li>3人以内なら全員記載する(本サイトでは4人目以降は省略)</li>
+            <li>英文の場合は以下のフォーマットに従って入力する(コンマの後ろは半角スペースを入れる)
+                <br>
+                [Fimily name], [Middle nameのイニシャル].[Given nameのイニシャル].
+            </li>
+        </ul>
+        <label for="author">著者名(記載順)</label>
+        <input type="text" id="author1">
+        <input type="text" id="author2">
+        <input type="text" id="author3">
+        <br>
+        <label for="authorNumCheck">著者が4人以上</label>
+        <input type="checkbox" id="authorNumCheck">
+
+        <br>
+        <h3>標題</h3>
+        <ul>
+            <li>大文字小文字は原稿のまま記載</li>
+        </ul>
+        <label for="title">標題</label>
+        <input type="text" id="title" name="title" style="width: 450px;">
+
+        <br>
+        <h3>雑誌</h3>
+        <ul>
+            <li>和文雑誌は略記不可</li>
+            <li>英文雑誌は国際的な慣行に従っていれば略記しても良い</li>
+        </ul>
+        <label for="papre_name">掲載雑誌名</label>
+        <input type="text" id="papreName" style="width: 450px;">
+        <input type="checkbox" id="italicTitleCheck">
+        <label for="italicTitleCheck">掲載雑誌名が略称</label>
+        <br>
+        <label for="turn">巻数</label>
+        <input type="number" id="turn" name="turn">
+        <br>
+        <label for="vol">号数</label>
+        <input type="number" id="vol" name="vol">
+        <br>
+        <label for="page">ページ</label>
+        <input type="number" id="startPage">
+        -
+        <input type="number" id="endPage">
+        <br>
+        <label for="year">発行年</label>
+        <input type="number" id="publishedYear">
+        <br>
+        <br>
+        <label for="papreUrl">URL(電子雑誌の場合)</label>
+        <input type="text" id="paperUrl">
+    </div>
+
+    <h3>作成</h3>
+    <div class=IPSJ>
+        情報処理学会
+        <button id="japaneseIPSJPaperButton">和文</button>
+        <button id="englishIPSJPaperButton">英文</button>
+    </div>
+    <br>
+    <div id="quoteTextArea"
+        style="padding: 10px; margin-bottom: 10px; border: 5px double #333333; border-radius: 10px;">
+        ここに表示されます
+    </div>
+    <p>リセットしたい時は画面を再読み込みしてください。</p>
+
+    <script src="createQuoteForPaper.js"></script>
+</body>
