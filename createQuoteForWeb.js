@@ -1,6 +1,16 @@
-
 var text = "";
 var quoteTextArea = document.getElementById('quoteTextArea');
+
+var today = new Date();
+today.setDate(today.getDate());
+document.getElementById("accessedYear").value = today.getFullYear();
+document.getElementById("accessedMonth").value = ("0"+(today.getMonth()+1)).slice(-2);
+document.getElementById("accessedDay").value = ("0"+today.getDate()).slice(-2);
+
+var dataProviderButton = document.getElementById('dataProviderButton');
+dataProviderButton.onclick = function () {
+    document.getElementById("dataProvider").value = document.getElementById('author').value;
+}
 
 var japaneseIPSJWebButton = document.getElementById('japaneseIPSJWebButton');
 japaneseIPSJWebButton.onclick = function () {
@@ -16,21 +26,18 @@ englishIPSJWebButton.onclick = function () {
     quoteTextArea.innerHTML = text;
 }
 
-
 function createQuoteOfWebForIPSJ(comma, colon, period, etAlii, openBrackets, closeBrackets, online, available, accessed){
     var text = "";
     var errorText = "著者(Webサイトの名称)・Wepページの題名・入手先・URLは必須です";
     //著者情報
     var author = document.getElementById('author').value;
     if (!author) {
-        alert("著者が空欄です");
         return errorText;
     }
     text = text + author;
     //Webページの題名
     var title = document.getElementById('webTitle').value;
     if (!title) {
-        alert("Webページの題名が空欄です");
         return errorText;
     }
     text = text + colon + title + comma;
@@ -42,21 +49,19 @@ function createQuoteOfWebForIPSJ(comma, colon, period, etAlii, openBrackets, clo
     //入手先
     var dataProvider = document.getElementById('dataProvider').value;
     if (!title) {
-        alert("Webページの入手先が空欄です");
         return errorText;
     }
     text = text  + dataProvider + online;
     //URL
     var webUrl = document.getElementById('webUrl').value;
     if (!webUrl) {
-        alert("URLが空欄です");
         return errorText;
     }
     text = text + comma+ available + "〈"  + webUrl + "〉" ;
     //発行年
     var accessedYear = document.getElementById('accessedYear').value;
     if (accessedYear) {
-        text = text + openBrackets + accessed + accessedYear + closeBrackets;
+        text = text + openBrackets + accessed + accessedYear;
         var accessedMonth = document.getElementById('accessedMonth').value;
         if (accessedMonth) {
             text = text + "-" + accessedMonth;
